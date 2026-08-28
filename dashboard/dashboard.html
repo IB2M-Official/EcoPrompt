@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPrompt — Full Dashboard &amp; Analytics</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <!-- ======== APP WRAPPER ======== -->
+  <div class="dash-container">
+
+    <!-- ======== TOPBAR ======== -->
+    <header class="dash-header">
+      <div class="dash-brand">
+        <img src="../icons/icon48.png" alt="EcoPrompt" class="dash-logo" width="32" height="32" />
+        <div class="dash-brand-info">
+          <div class="dash-title-wrap">
+            <h1 class="dash-title">EcoPrompt</h1>
+            <span class="dash-badge">v1.5.0 Dashboard</span>
+          </div>
+          <p class="dash-subtitle">Real-time Ecological &amp; Financial AI Impact Tracker</p>
+        </div>
+      </div>
+      <div class="dash-actions">
+        <a href="https://ko-fi.com/ib2m_official" target="_blank" class="btn-kofi" rel="noopener noreferrer">
+          ☕ Support IB2M on Ko-fi
+        </a>
+      </div>
+    </header>
+
+    <!-- ======== TAB NAVIGATION ======== -->
+    <nav class="dash-tabs" role="tablist" aria-label="Dashboard Sections">
+      <button class="dash-tab active" data-tab="analytics" role="tab" aria-selected="true" aria-controls="tab-analytics">
+        <span class="tab-icon">📊</span>
+        <span>Extended Analytics</span>
+      </button>
+      <button class="dash-tab" data-tab="quotas" role="tab" aria-selected="false" aria-controls="tab-quotas">
+        <span class="tab-icon">🎯</span>
+        <span>Daily Quotas &amp; Alerts</span>
+      </button>
+      <button class="dash-tab" data-tab="guide" role="tab" aria-selected="false" aria-controls="tab-guide">
+        <span class="tab-icon">📖</span>
+        <span>Eco Guide by IB2M</span>
+      </button>
+    </nav>
+
+    <!-- ================================================================= -->
+    <!-- TAB 1: EXTENDED ANALYTICS -->
+    <!-- ================================================================= -->
+    <main class="dash-content" id="tab-analytics" role="tabpanel">
+
+      <!-- Filters Toolbar -->
+      <div class="toolbar">
+        <div class="filter-group">
+          <span class="filter-title">Time Period:</span>
+          <div class="pill-group" role="group" aria-label="Period">
+            <button class="pill active" data-period="day">Today</button>
+            <button class="pill" data-period="week">Last 7 Days</button>
+            <button class="pill" data-period="month">This Month</button>
+            <button class="pill" data-period="year">This Year</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-title">Platform:</span>
+          <div class="pill-group platform-group" role="group" aria-label="Platform">
+            <button class="pill active" data-platform="all">🌐 All Platforms</button>
+            <button class="pill" data-platform="openai">✦ ChatGPT</button>
+            <button class="pill" data-platform="google">◈ Gemini</button>
+            <button class="pill" data-platform="anthropic">◇ Claude</button>
+          </div>
+        </div>
+
+        <div class="period-info" id="period-info">Loading period...</div>
+      </div>
+
+      <!-- Prompts Hero Summary Card -->
+      <div class="hero-card">
+        <div class="hero-left">
+          <span class="hero-icon">💬</span>
+          <div class="hero-text">
+            <span class="hero-label">Total Prompts Processed</span>
+            <div class="hero-value-wrap">
+              <span class="hero-value" id="kpi-prompts">—</span>
+              <span class="hero-unit">requests</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-equiv" id="equiv-prompts">Analyzing activity...</div>
+      </div>
+
+      <!-- Interactive Analytics Chart Section -->
+      <section class="chart-section">
+        <div class="chart-header">
+          <div class="chart-title-wrap">
+            <h3>📈 Impact Timeline &amp; Trends</h3>
+            <span class="chart-sub" id="chart-sub-label">Daily prompt distribution</span>
+          </div>
+          <!-- Metric Selector for the Chart -->
+          <div class="chart-metric-select" role="group" aria-label="Chart Metric">
+            <button class="chart-pill active" data-chart-metric="prompts">💬 Prompts</button>
+            <button class="chart-pill" data-chart-metric="co2">🍃 CO₂</button>
+            <button class="chart-pill" data-chart-metric="water">💧 Water</button>
+            <button class="chart-pill" data-chart-metric="energy">⚡ Energy</button>
+          </div>
+        </div>
+
+        <!-- SVG Chart Container -->
+        <div class="chart-container" id="chart-container">
+          <!-- Dynamically rendered via dashboard.js -->
+        </div>
+      </section>
+
+      <!-- Main 4 KPI Cards Grid -->
+      <div class="kpi-grid">
+
+        <!-- CO2 Card -->
+        <article class="kpi-card" id="card-co2">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap icon-green">🍃</div>
+            <div class="kpi-details">
+              <span class="kpi-label">Carbon Footprint</span>
+              <div class="kpi-val" id="kpi-co2">—</div>
+            </div>
+          </div>
+          <div class="kpi-gauge-bg">
+            <div class="kpi-gauge-fill fill-co2" id="gf-co2" style="width: 0%"></div>
+          </div>
+          <div class="kpi-equiv-box" id="equiv-co2">—</div>
+        </article>
+
+        <!-- Water Card -->
+        <article class="kpi-card" id="card-water">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap icon-cyan">💧</div>
+            <div class="kpi-details">
+              <span class="kpi-label">Water Evaporation</span>
+              <div class="kpi-val" id="kpi-water">—</div>
+            </div>
+          </div>
+          <div class="kpi-gauge-bg">
+            <div class="kpi-gauge-fill fill-water" id="gf-water" style="width: 0%"></div>
+          </div>
+          <div class="kpi-equiv-box" id="equiv-water">—</div>
+        </article>
+
+        <!-- Energy Card -->
+        <article class="kpi-card" id="card-energy">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap icon-amber">⚡</div>
+            <div class="kpi-details">
+              <span class="kpi-label">Energy Consumed</span>
+              <div class="kpi-val" id="kpi-energy">—</div>
+            </div>
+          </div>
+          <div class="kpi-gauge-bg">
+            <div class="kpi-gauge-fill fill-energy" id="gf-energy" style="width: 0%"></div>
+          </div>
+          <div class="kpi-equiv-box" id="equiv-energy">—</div>
+        </article>
+
+        <!-- Cost Card -->
+        <article class="kpi-card" id="card-cost">
+          <div class="kpi-top">
+            <div class="kpi-icon-wrap icon-violet">💶</div>
+            <div class="kpi-details">
+              <span class="kpi-label">Estimated API Cost</span>
+              <div class="kpi-val" id="kpi-cost">—</div>
+            </div>
+          </div>
+          <div class="kpi-gauge-bg">
+            <div class="kpi-gauge-fill fill-cost" id="gf-cost" style="width: 0%"></div>
+          </div>
+          <div class="kpi-equiv-box" id="equiv-cost">—</div>
+        </article>
+
+      </div>
+
+      <!-- Empty State -->
+      <div class="dash-empty" id="dash-empty" hidden>
+        <span class="empty-icon">🌱</span>
+        <h3>No AI Activity Recorded for this Period</h3>
+        <p>Open ChatGPT, Gemini or Claude in another tab and start prompting to see real-time data.</p>
+      </div>
+
+    </main>
+
+    <!-- ================================================================= -->
+    <!-- TAB 2: DAILY QUOTAS & ALERTS -->
+    <!-- ================================================================= -->
+    <main class="dash-content" id="tab-quotas" role="tabpanel" hidden>
+
+      <div class="quota-panel-container">
+        
+        <div class="quota-intro">
+          <h2>🎯 Daily Budget &amp; Alert System</h2>
+          <p>Define a personalized daily threshold for your AI interactions. When exceeded, EcoPrompt alerts you with a gentle notification to encourage prompt optimization and batching.</p>
+        </div>
+
+        <!-- Quota Toggle Card -->
+        <div class="quota-card">
+          <div class="quota-row-main">
+            <div>
+              <h3>Enable Daily Limit</h3>
+              <p class="text-sub">Trigger real-time in-page alerts and gauge status when quota is met</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="quota-toggle" role="switch" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div id="quota-controls" class="quota-controls-area">
+            
+            <div class="quota-form-grid">
+              
+              <!-- Metric Select -->
+              <div class="form-group">
+                <label for="quota-metric" class="form-label">Quota Metric</label>
+                <select id="quota-metric" class="dash-select">
+                  <option value="prompts">Total Prompts / Day</option>
+                  <option value="co2">Grams of CO₂ (g)</option>
+                  <option value="water">Milliliters of Water (mL)</option>
+                  <option value="energy">Energy in Watt-hours (Wh)</option>
+                </select>
+              </div>
+
+              <!-- Value Input + Slider -->
+              <div class="form-group">
+                <div class="slider-title-wrap">
+                  <label for="quota-range" class="form-label">Threshold Value</label>
+                  <div class="slider-val-box">
+                    <input type="number" id="quota-number" class="dash-num-input" min="1" max="9999" />
+                    <span id="quota-unit-label" class="dash-unit-tag">prompts</span>
+                  </div>
+                </div>
+                <input type="range" id="quota-range" class="dash-range-slider" min="1" max="100" step="1" />
+                <div id="quota-equiv" class="quota-equiv-live">≈ 15 standard prompts / day</div>
+              </div>
+
+            </div>
+
+            <!-- Live Today Progress Gauge -->
+            <div class="quota-live-progress">
+              <div class="progress-title-row">
+                <span class="progress-title">Today's Consumption vs Quota</span>
+                <span id="quota-progress-text" class="progress-value-tag">— / —</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div id="quota-gauge-fill" class="progress-bar-fill" style="width: 0%"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- ================================================================= -->
+    <!-- TAB 3: ECO GUIDE BY IB2M (5 FULL ARTICLES) -->
+    <!-- ================================================================= -->
+    <main class="dash-content" id="tab-guide" role="tabpanel" hidden>
+
+      <div class="guide-wrapper">
+
+        <div class="guide-intro">
+          <h2>📖 Eco Guide by IB2M</h2>
+          <p>Understand the invisible physics behind generative AI, provider energy architectures, and practical habits to reduce your digital carbon footprint.</p>
+        </div>
+
+        <!-- ARTICLE 1 -->
+        <article class="guide-article">
+          <div class="article-header">
+            <span class="article-badge badge-green">Article 1</span>
+            <h3>About Creator IB2M &amp; EcoPrompt</h3>
+          </div>
+          <div class="article-body">
+            <p><strong>EcoPrompt</strong> was created by <strong>IB2M</strong> to bring radical, guilt-free environmental transparency to generative AI applications. As millions of queries are sent daily to large language models, the computational and thermodynamic cost remains hidden behind pristine web interfaces.</p>
+            <p><strong>100% Private &amp; In-Browser:</strong> Unlike analytics services that harvest your prompts or track your identity, EcoPrompt operates completely offline in your browser. Calculations are based on localized algorithmic models derived from peer-reviewed research (Luccioni et al., Google Sustainability, Patterson et al.).</p>
+            <p>Support continuous research and open-source updates on <a href="https://ko-fi.com/ib2m_official" target="_blank" rel="noopener noreferrer">Ko-fi (IB2M)</a>.</p>
+          </div>
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article class="guide-article">
+          <div class="article-header">
+            <span class="article-badge badge-cyan">Article 2</span>
+            <h3>AI Resource Trends: Past, Present &amp; Future</h3>
+          </div>
+          <div class="article-body">
+            <p>From 2020 to 2023, standard text generation (GPT-3, early PaLM) consumed roughly <strong>1.5 to 2.5 Wh per request</strong>. With the rise of Mixture-of-Experts (MoE) architectures and distillation (GPT-4o mini, Gemini Flash), light queries dropped to <strong>~0.3 Wh</strong>.</p>
+            <p>However, the 2024–2026 paradigm introduced <strong>Test-Time Compute (Reasoning / Thinking models)</strong> such as OpenAI o1/o3, DeepSeek-R1, and Gemini Deep Think. These models iterate over hidden chains of thought, multiplying GPU cluster execution time by <strong>4× to 10×</strong> per answer.</p>
+            <p>Multimodal diffusion models (DALL-E 3, Imagen 3, Sora) represent the heaviest consumer tier, requiring hundreds of matrix passes per image, reaching <strong>30+ Wh</strong> per generation.</p>
+          </div>
+        </article>
+
+        <!-- ARTICLE 3 -->
+        <article class="guide-article">
+          <div class="article-header">
+            <span class="article-badge badge-violet">Article 3</span>
+            <h3>Provider Footprint: OpenAI vs Google vs Anthropic</h3>
+          </div>
+          <div class="article-body">
+            <p>Not all clouds are powered equally. The location and energy mix of the hosting data center drastically influence the carbon intensity (PUE &amp; CUE):</p>
+            <ul class="guide-list">
+              <li><strong>Google (Gemini):</strong> Operates on custom TPUv4/TPUv5e silicon with highly optimized 24/7 carbon-free energy goals, achieving some of the lowest PUE metrics in the industry (~1.10).</li>
+              <li><strong>Microsoft / OpenAI (ChatGPT):</strong> Relies on massive Azure NVIDIA H100/B200 clusters. Carbon footprint varies widely depending on whether data centers reside in hydro-rich regions or fossil-heavy grids.</li>
+              <li><strong>Anthropic (Claude on AWS/GCP):</strong> Utilizes distributed Trainium and NVIDIA clusters with balanced energy efficiency profiles.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ARTICLE 4 -->
+        <article class="guide-article">
+          <div class="article-header">
+            <span class="article-badge badge-amber">Article 4</span>
+            <h3>The 4 Environmental &amp; Financial Pillars</h3>
+          </div>
+          <div class="article-body">
+            <div class="pillars-grid">
+              <div class="pillar-box">
+                <h4>⚡ Energy (Watt-hours)</h4>
+                <p>Electrical draw of server power supplies, GPU tensor cores, high-bandwidth memory (HBM3), and data center auxiliary power (PUE multiplier).</p>
+              </div>
+              <div class="pillar-box">
+                <h4>💧 Water Consumption (mL)</h4>
+                <p>Direct on-site evaporative cooling towers + indirect water consumed at thermoelectric power generation plants (WUE factor).</p>
+              </div>
+              <div class="pillar-box">
+                <h4>🍃 Carbon Emissions (g CO₂)</h4>
+                <p>Grams of equivalent CO₂ calculated using regional grid emission factors (~300–450 g CO₂/kWh global average data center mix).</p>
+              </div>
+              <div class="pillar-box">
+                <h4>💶 Estimated Cost (€)</h4>
+                <p>Approximate equivalent token API value based on standard public enterprise rates for average response lengths.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 5 -->
+        <article class="guide-article">
+          <div class="article-header">
+            <span class="article-badge badge-slate">Article 5</span>
+            <h3>How EcoPrompt Works &amp; Calculates</h3>
+          </div>
+          <div class="article-body">
+            <p>When you press <kbd>Enter</kbd> or click <strong>Send</strong> on ChatGPT, Gemini, or Claude, EcoPrompt executes the following pipeline:</p>
+            <ol class="guide-list">
+              <li><strong>DOM Interception:</strong> Securely extracts prompt length without saving or transmitting any text content.</li>
+              <li><strong>Length Weighting:</strong> Standard prompts (~400 tokens) use base coefficients. Longer prompts (>1,000 chars ×1.3, >3,000 chars ×1.8) reflect increased KV-cache computation.</li>
+              <li><strong>Local Storage Update:</strong> Aggregates daily, weekly, and monthly counters in <code>chrome.storage.local</code>.</li>
+              <li><strong>Quota Check:</strong> Evaluates your custom threshold and alerts you if budget is surpassed.</li>
+            </ol>
+          </div>
+        </article>
+
+      </div>
+
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="dash-footer">
+      <div class="footer-left">
+        <span class="footer-brand">EcoPrompt v1.3.0</span>
+        <span>• Created by IB2M</span>
+        <span>• 100% In-Browser Privacy</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://ko-fi.com/ib2m_official" target="_blank" rel="noopener noreferrer" class="footer-link">
+          ☕ Ko-fi
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

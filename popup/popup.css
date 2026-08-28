@@ -1,0 +1,322 @@
+﻿/* ═══════════════════════════════════════════════════════════════
+   popup.css  –  EcoPrompt v1.5.0 Botanical Minimalist
+   Palette : Warm Linen, Forest Green, Mineral Grey & Earth Accents
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Surfaces */
+  --bg:          #FAF8F5;
+  --bg-card:     #FFFFFF;
+  --bg-card-alt: #EDF4ED;
+  --bg-header:   #FDFCFA;
+
+  /* Typography */
+  --text:        #1E293B;
+  --text-sub:    #475569;
+  --text-muted:  #64748B;
+
+  /* Botanical Accents */
+  --forest-green:  #2D5A27;
+  --forest-hover:  #23471F;
+  --green-glow:    rgba(45, 90, 39, 0.12);
+  --sage-border:   #D1E3D0;
+  
+  --terracotta:    #C25E3E;
+  --river-blue:    #0284C7;
+  --amber-gold:    #D97706;
+
+  /* Borders & Shadows */
+  --border:        #EAE5DE;
+  --border-card:   #E2E8F0;
+  --shadow-soft:   0 2px 10px rgba(45, 90, 39, 0.04);
+  --shadow-hover:  0 4px 14px rgba(45, 90, 39, 0.08);
+
+  --popup-w:       340px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: var(--popup-w);
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  min-height: 310px;
+  overflow-x: hidden;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--forest-green);
+}
+
+.brand-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55);
+  animation: pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55); }
+  60%  { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+.quick-dash-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  color: var(--text-sub);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.quick-dash-btn:hover {
+  background: var(--bg-card-alt);
+  color: var(--forest-green);
+  border-color: var(--sage-border);
+}
+
+/* ── Main ─────────────────────────────────────────────────────── */
+.main {
+  padding: 10px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.today-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.today-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* ── Prompts Card (Featured) ──────────────────────────────────── */
+.card-prompts-featured {
+  background: var(--bg-card-alt);
+  border: 1px solid var(--sage-border);
+  border-radius: 12px;
+  padding: 9px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-featured-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-featured-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.card-featured-data {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.card-featured-value {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--forest-green);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.card-featured-unit {
+  font-size: 11px;
+  color: var(--text-sub);
+  font-weight: 600;
+}
+
+.card-featured-equiv {
+  font-size: 10px;
+  color: #4A6B44;
+  font-weight: 500;
+}
+
+/* ── 2x2 Grid Mini Cards ──────────────────────────────────────── */
+.kpi-grid-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.card-mini {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 7px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card-mini:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+  border-color: #CBD5E1;
+}
+
+.card-mini-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-mini-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.card-mini-value {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.card-mini-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.card-mini-equiv {
+  font-size: 9.5px;
+  color: var(--text-sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 13px;
+}
+
+/* ── Open Full Dashboard Button ──────────────────────────────── */
+.open-dash-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: var(--forest-green);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(45, 90, 39, 0.2);
+  transition: background-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  margin-top: 1px;
+}
+
+.open-dash-btn:hover {
+  background: var(--forest-hover);
+  box-shadow: 0 3px 12px rgba(45, 90, 39, 0.3);
+  transform: translateY(-1px);
+}
+
+.open-dash-btn:active {
+  transform: scale(0.98);
+}
+
+.dash-btn-icon {
+  font-size: 13px;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.footer {
+  padding: 7px 12px 9px;
+  background: var(--bg-header);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--forest-green);
+  border: 1px solid #D1E3D0;
+  background: #EDF4ED;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.donate-btn:hover {
+  background: #E2ECE1;
+  border-color: #B9D4B8;
+  transform: translateY(-1px);
+}
+
+.footer-note {
+  font-size: 9px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPrompt</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="header">
+    <div class="brand">
+      <img src="../icons/icon48.png" alt="" class="brand-logo" width="24" height="24" aria-hidden="true" />
+      <span class="brand-name">EcoPrompt</span>
+      <span class="brand-pulse" aria-label="Active"></span>
+    </div>
+    <button id="quick-dash-btn" class="quick-dash-btn" title="Open Full Dashboard" aria-label="Open Full Dashboard">
+      ↗
+    </button>
+  </header>
+
+  <!-- ======== MAIN POPUP CONTENT ======== -->
+  <main class="main">
+
+    <!-- Day Header -->
+    <div class="today-banner">
+      <span class="today-label" id="today-date">Today's Footprint</span>
+    </div>
+
+    <!-- Prompts Sent (Featured Card) -->
+    <article class="card card-prompts-featured" id="card-prompts">
+      <div class="card-featured-top">
+        <span class="card-featured-icon" aria-hidden="true">💬</span>
+        <div class="card-featured-data">
+          <span class="card-featured-value" id="kpi-prompts">—</span>
+          <span class="card-featured-unit">Prompts today</span>
+        </div>
+      </div>
+      <div class="card-featured-equiv" id="equiv-prompts">No requests yet</div>
+    </article>
+
+    <!-- 2x2 Essential Metrics Grid -->
+    <section class="kpi-grid-mini" aria-label="Key Metrics">
+
+      <!-- CO2 -->
+      <article class="card-mini" id="card-co2">
+        <div class="card-mini-top">
+          <span class="card-mini-icon">🍃</span>
+          <span class="card-mini-value" id="kpi-co2">—</span>
+        </div>
+        <div class="card-mini-label">CO₂</div>
+        <div class="card-mini-equiv" id="equiv-co2"></div>
+      </article>
+
+      <!-- Water -->
+      <article class="card-mini" id="card-water">
+        <div class="card-mini-top">
+          <span class="card-mini-icon">💧</span>
+          <span class="card-mini-value" id="kpi-water">—</span>
+        </div>
+        <div class="card-mini-label">Water</div>
+        <div class="card-mini-equiv" id="equiv-water"></div>
+      </article>
+
+      <!-- Energy -->
+      <article class="card-mini" id="card-energy">
+        <div class="card-mini-top">
+          <span class="card-mini-icon">⚡</span>
+          <span class="card-mini-value" id="kpi-energy">—</span>
+        </div>
+        <div class="card-mini-label">Energy</div>
+        <div class="card-mini-equiv" id="equiv-energy"></div>
+      </article>
+
+      <!-- Cost -->
+      <article class="card-mini" id="card-cost">
+        <div class="card-mini-top">
+          <span class="card-mini-icon">💶</span>
+          <span class="card-mini-value" id="kpi-cost">—</span>
+        </div>
+        <div class="card-mini-label">Est. Cost</div>
+        <div class="card-mini-equiv" id="equiv-cost"></div>
+      </article>
+
+    </section>
+
+    <!-- Primary Action: Open Full Dashboard -->
+    <button id="open-dash-btn" class="open-dash-btn">
+      <span class="dash-btn-icon">🚀</span>
+      <span>Full Dashboard &amp; Analytics</span>
+    </button>
+
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <a href="#" id="donate-btn" class="donate-btn" role="button">
+      ☕ Support IB2M on Ko-fi
+    </a>
+    <p class="footer-note">100% private &amp; local in-browser calculation</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
