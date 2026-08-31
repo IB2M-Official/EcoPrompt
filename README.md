@@ -1,4 +1,4 @@
-﻿# 🌿 EcoPrompt — AI Ecological & Financial Impact Tracker
+# 🌿 EcoPrompt — AI Ecological & Financial Impact Tracker
 
 <p align="center">
   <img src="icons/icon128.png" alt="EcoPrompt Logo" width="96" height="96" />
@@ -15,6 +15,21 @@
   <img src="https://img.shields.io/badge/privacy-100%25_Local-0284C7?style=flat-square" alt="100% Local Privacy" />
   <img src="https://img.shields.io/badge/manifest-v3-D97706?style=flat-square" alt="Manifest V3" />
   <a href="https://ko-fi.com/ib2m_official"><img src="https://img.shields.io/badge/Support-Ko--fi-FF5E5B?style=flat-square&logo=kofi&logoColor=white" alt="Support on Ko-fi" /></a>
+</p>
+
+<p align="center">
+  <img src="assets/promo/ecoprompt-banner-horizontal.jpg" alt="EcoPrompt Banner" width="100%" />
+</p>
+
+## 📸 Preview Gallery
+
+<p align="center">
+  <img src="assets/promo/ecoprompt-card-feature.jpg" alt="EcoPrompt Feature Overview" width="48%" />
+  <img src="assets/promo/ecoprompt-dashboard-analytics.png" alt="EcoPrompt Interactive Analytics Dashboard" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/promo/ecoprompt-dashboard-quotas.png" alt="EcoPrompt Daily Quota System" width="48%" />
+  <img src="assets/promo/ecoprompt-dashboard-guide.png" alt="EcoPrompt Eco Guide by IB2M" width="48%" />
 </p>
 
 ---
