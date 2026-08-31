@@ -17,19 +17,19 @@
   <a href="https://ko-fi.com/ib2m_official"><img src="https://img.shields.io/badge/Support-Ko--fi-FF5E5B?style=flat-square&logo=kofi&logoColor=white" alt="Support on Ko-fi" /></a>
 </p>
 
-<p align="center">
-  <img src="assets/promo/ecoprompt-banner-horizontal.jpg" alt="EcoPrompt Banner" width="100%" />
-</p>
-
 ## 📸 Preview Gallery
 
 <p align="center">
-  <img src="assets/promo/ecoprompt-card-feature.jpg" alt="EcoPrompt Feature Overview" width="48%" />
-  <img src="assets/promo/ecoprompt-dashboard-analytics.png" alt="EcoPrompt Interactive Analytics Dashboard" width="48%" />
+  <img src="assets/promo/ecoprompt-banner-horizontal.jpg" alt="EcoPrompt Banner" width="100%" />
 </p>
 <p align="center">
-  <img src="assets/promo/ecoprompt-dashboard-quotas.png" alt="EcoPrompt Daily Quota System" width="48%" />
-  <img src="assets/promo/ecoprompt-dashboard-guide.png" alt="EcoPrompt Eco Guide by IB2M" width="48%" />
+  <img src="assets/promo/ecoprompt-dashboard-analytics.png" alt="EcoPrompt Analytics Dashboard" width="48%" />
+  <img src="assets/promo/ecoprompt-dashboard-quotas.png" alt="EcoPrompt Quotas & Alerts" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/promo/ecoprompt-popup-chatgpt.png" alt="EcoPrompt on ChatGPT" width="31%" />
+  <img src="assets/promo/ecoprompt-popup-claude.png" alt="EcoPrompt on Claude" width="31%" />
+  <img src="assets/promo/ecoprompt-toast-gemini.png" alt="EcoPrompt Toast on Gemini" width="31%" />
 </p>
 
 ---
