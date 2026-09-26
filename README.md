@@ -61,6 +61,8 @@
 | **Anthropic Claude** | `claude.ai` | Standard & Artifacts Composer |
 
 ---
+Install the [extension on the chrome web store](https://chromewebstore.google.com/detail/ecoprompt/pebfbfdanllpmbokgamlcgmmhhbfpgaj)
+
 
 ## 🚀 Installation (Developer Mode)
 
